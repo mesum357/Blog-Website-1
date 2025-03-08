@@ -1,0 +1,102 @@
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+.navbar-nav  li a:hover {
+    color: #1abc9c !important;
+}
+
+.footer-padding {
+	padding-bottom: 60px;
+}
+
+.footer {
+	position: absolute;
+	text-align: center;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	background-color: #1abc9c;
+}
+
+.footer p {
+	margin-top: 25px;
+	font-size: 12px;
+  color: #fff;
+}
+
+.form-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+
+   
+}
+.form-group input{
+    padding: 10px;
+
+}
+
+
+/* SECTION 2 */
+
+.sec-2{
+    padding: 50px;
+
+}
+.sec-2-content{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: space-evenly;
+    gap: 30px;
+}
+.sec-2-post{
+    box-shadow: 0px 0px 8px 0px gray;
+    padding: 30px;
+    width: 500px;
+    max-width: 500px;
+    border-radius: 7px;
+}
+
+.sec-3{
+    padding: 50px;
+}
+.sec-3-content{
+    display: flex;
+    justify-content: center;
+   
+}
+
+.sec-3-content a{
+    padding: 10px 20px;
+    background-color: #fff;
+
+    color:#1abc9c;
+    border: 1px solid #1abc9c;
+    border-radius: 7px;
+    text-decoration: none;
+    position: fixed;
+    bottom: 50px;
+    left: 30px;
+    transition: 0.5s;
+}
+.sec-3-content a:hover{
+    background-color: #1abc9c;
+    color: white;
+}

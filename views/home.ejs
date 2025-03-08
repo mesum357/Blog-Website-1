@@ -1,0 +1,28 @@
+<!-- JS -->
+<div class="sec-1">
+    <%-  include('partials/header') -%>
+    <h1>Home Page</h1>
+    <p>  <%= homePara  %> </p>
+</div>
+
+<div class="sec-2">
+    <div class="sec-2-content">
+<% posts.forEach((post)=>{ %>
+    <div class="sec-2-post">
+<h1> <%= (post.title).substr(0,50) %>  </h1>
+<p> <%= (post.content).substr(0,50)+ "......." %> <br>
+<a href= "/posts/<%=post.title %>" >Read More</a>
+</p>
+<% console.log("The Post title in home page is "+post.title) %>
+    </div>
+<%  }) %> 
+    </div>
+</div>
+
+<div class="sec-3">
+    <div class="sec-3-content">
+        <a href="/compose">Create a Post</a>
+    </div>
+</div>
+
+
