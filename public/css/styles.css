@@ -100,3 +100,64 @@
     background-color: #1abc9c;
     color: white;
 }
+
+.main-title {
+    font-size: 2.5em;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.intro-text {
+    font-size: 1.2em;
+    color: #666;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sec-2-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.sec-2-post {
+    width: 45%;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.post-title {
+    font-size: 1.5em;
+    color: #444;
+}
+
+.post-excerpt {
+    font-size: 1em;
+    color: #555;
+}
+
+.read-more {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.create-post {
+    display: inline-block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+}

@@ -1,28 +1,199 @@
-<!-- JS -->
-<div class="sec-1">
-    <%-  include('partials/header') -%>
-    <h1>Home Page</h1>
-    <p>  <%= homePara  %> </p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a6da3;
+            --secondary-color: #f5f7fa;
+            --accent-color: #ff7e5f;
+            --text-color: #333;
+            --light-text: #777;
+            --spacing: 1.5rem;
+        }
 
-<div class="sec-2">
-    <div class="sec-2-content">
-<% posts.forEach((post)=>{ %>
-    <div class="sec-2-post">
-<h1> <%= (post.title).substr(0,50) %>  </h1>
-<p> <%= (post.content).substr(0,50)+ "......." %> <br>
-<a href= "/posts/<%=post.title %>" >Read More</a>
-</p>
-<% console.log("The Post title in home page is "+post.title) %>
-    </div>
-<%  }) %> 
-    </div>
-</div>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<div class="sec-3">
-    <div class="sec-3-content">
-        <a href="/compose">Create a Post</a>
-    </div>
-</div>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--secondary-color);
+            padding-bottom: 4rem;
+        }
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
 
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 5rem 0 3rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+        }
+
+        .main-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .intro-text {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--light-text);
+            font-size: 1.2rem;
+        }
+
+        /* Blog Posts Section */
+        .blog-posts {
+            padding: 3rem 0;
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .post-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .post-title {
+            padding: 1.5rem 1.5rem 0.5rem;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .post-excerpt {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--light-text);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--accent-color);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 4rem 0;
+            background-color: rgba(74, 109, 163, 0.1);
+        }
+
+        .create-post {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .create-post:hover {
+            background: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-section {
+                padding: 3rem 0 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="main-title">Welcome to Our Blog</h1>
+            <p class="intro-text"><%= homePara %></p>
+        </div>
+    </section>
+
+    <section class="blog-posts">
+        <div class="container">
+            <div class="posts-grid">
+                <% posts.forEach((post) => { %>
+                    <article class="post-card">
+                        <h2 class="post-title"><%= (post.title).substr(0,50) %></h2>
+                        <p class="post-excerpt">
+                            <%= (post.content).substr(0,50) + "......." %>
+                            <a class="read-more" href="/posts/<%= post.title %>">Read More</a>
+                        </p>
+                    </article>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <a href="/compose" class="create-post">Create New Post</a>
+        </div>
+    </section>
+
+   
+
+    <script>
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
