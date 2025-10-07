@@ -82,8 +82,7 @@ app.get("/posts/:topic",  function(req,res){
 })
 
 
-const PORT = 3001; // Or any free port
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
 
 
 
